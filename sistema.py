@@ -42,6 +42,24 @@ class SistemaSoftwareFJ:
         self._log = obtener_logger()
         self._log.info("=" * 20 + " Sistema Software FJ iniciado " + "=" * 20)
 
+    # ================== consultas de solo lectura ==================
+    # Se devuelven tuplas (inmutables) para que el menú pueda mostrar los
+    # datos sin modificar las listas internas (se conserva la encapsulación).
+    @property
+    def clientes(self) -> tuple:
+        """Clientes registrados (solo lectura)."""
+        return tuple(self._clientes)
+
+    @property
+    def servicios(self) -> tuple:
+        """Servicios creados (solo lectura)."""
+        return tuple(self._servicios)
+
+    @property
+    def reservas(self) -> tuple:
+        """Reservas creadas (solo lectura)."""
+        return tuple(self._reservas)
+
     # ================== utilidades internas ==================
     def _ok(self, mensaje):
         print(f"   ✔ {mensaje}")

@@ -7,7 +7,8 @@ y registro de eventos en un archivo de logs.
 ## Ejecución
 
 ```bash
-python main.py
+python main.py   # simulación automática de 28 operaciones
+python menu.py   # menú interactivo para gestionar el sistema paso a paso
 ```
 
 Requiere Python 3.8 o superior. No usa librerías externas.
@@ -25,6 +26,7 @@ Los eventos y errores quedan en `logs/software_fj.log`.
 | `reserva.py`     | Clase `Reserva` con estados y operaciones confirmar / cancelar / procesar. |
 | `sistema.py`     | `SistemaSoftwareFJ`: listas internas y orquestación con captura de todos los errores. |
 | `main.py`        | Simulación de 28 operaciones (válidas e inválidas). |
+| `menu.py`        | Menú interactivo de consola (registrar, crear, reservar, confirmar, procesar, cancelar, ver log). |
 
 ## Diagrama de clases (resumen)
 
@@ -74,10 +76,13 @@ SoftwareFJError
 IVA: 19 %. Descuento permitido: 0 a 99 %. Un servicio confirmado queda ocupado hasta que la
 reserva se procesa o se cancela.
 
-## Integrantes
+## Menú interactivo
 
-- Integrante 1 – excepciones y logger
-- Integrante 2 – Entidad y Cliente
-- Integrante 3 – Servicios
-- Integrante 4 – Reserva
-- Integrante 5 – Sistema, simulación y documentación
+`menu.py` ofrece 9 opciones más la salida. Cada opción pide los datos por teclado y delega en
+`SistemaSoftwareFJ`, que valida y registra todo en el log. Una opción inexistente, un dato inválido,
+`Ctrl+C` dentro de una opción o un error inesperado nunca cierran el programa: se informa, se
+registra y el menú vuelve a mostrarse. La opción 8 carga datos de ejemplo para probar rápido.
+
+## Autor
+
+- [Nombre completo] – desarrollo individual de todos los módulos, pruebas y documentación.
